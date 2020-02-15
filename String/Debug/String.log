@@ -1,0 +1,5 @@
+﻿  Main.cpp
+C:\Users\alexa\Documents\Projetos\String\String\Main.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  String.cpp
+  Generating Code...
+  String.vcxproj -> C:\Users\alexa\Documents\Projetos\String\Debug\String.exe

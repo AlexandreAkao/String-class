@@ -1,0 +1,8 @@
+﻿  Main.cpp
+C:\Users\alexa\Documents\Projetos\String\String\Main.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  String.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 12 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  String.vcxproj -> C:\Users\alexa\Documents\Projetos\String\Release\String.exe
