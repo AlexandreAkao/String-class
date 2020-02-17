@@ -32,16 +32,26 @@ int main() {
 	
 	cout << d[0] << endl;
 
-	if (b > e) {
-		cout << "hello" << endl;
-	}
-	if (e > c) {
-		cout << "hello" << endl;
-	}
-	if (c > d) {
-		cout << "hello" << endl;
-	}
+	//if(a == d)
 
+	/*if (b <= e) {
+		cout << "hello" << endl;
+	}
+	if (e <= c) {
+		cout << "hello" << endl;
+	}
+	if (c <= d) {
+		cout << "hello" << endl;
+	}*/
+	//if (b > e) {
+	//	cout << "hello" << endl;
+	//}
+	//if (e > c) {
+	//	cout << "hello" << endl;
+	//}
+	//if (c > d) {
+	//	cout << "hello" << endl;
+	//}
 	//if (d == b) {
 	//	cout << "hello" << endl;
 	//}
