@@ -154,7 +154,6 @@ public:
 
 	}
 
-
 	char operator [] (int index) {
 		if (this->length == 0) {
 			throw "String vazia";
@@ -164,8 +163,6 @@ public:
 		}
 		return word[index];
 	}
-
-
 
 	friend auto operator == (String* word1, String& word2)->bool {
 		String word = word1->getWord();
@@ -195,32 +192,21 @@ public:
 		return !word1.equalsComparation(word2);
 	}
 
+	friend auto operator > (String& word1, String* word2)-> bool {
+		String word = word2->getWord();
+		return word1.greeterThanComparation(word);
+	}
+
+	friend auto operator > (String& word1, String& word2)-> bool {
+		return word1.greeterThanComparation(word2);
+	}
+
+	friend auto operator > (String* word1, String& word2)-> bool {
+		String word = word1->getWord();
+		return word.greeterThanComparation(word2);
+	} 
 
 	/*
-	bool operator > (String otherWord) {
-		int indice = otherWord.getLength();
-		if (indice > length) {
-			indice = length;
-		}
-
-		for (int i = 0; i < indice; i++) {
-			if (word[i] < otherWord[i]) {
-				return false;
-			}
-			else if (word[i] > otherWord[i]) {
-				return true;
-			}
-		}
-
-		if (length == otherWord.getLength()) {
-			return false;
-		}
-		else if (length < otherWord.getLength()) {
-			return false;
-		}
-
-		return false;
-	}
 
 	bool operator < (String otherWord) {
 		int indice = otherWord.length;
@@ -261,11 +247,17 @@ public:
 			}
 		}
 
-		if (length > otherWord.length) {
+		if (length == otherWord.getLength()) {
 			return true;
 		}
-		else if (length < otherWord.length) {
-			return false;
+		else 
+		{
+			if (length > otherWord.length) {
+				return true;
+			}
+			else if (length < otherWord.length) {
+				return false;
+			}
 		}
 
 		return true;
@@ -403,6 +395,7 @@ private:
 
 		return size;
 	}
+
 	bool equalsComparation(String word2) {
 		if (length != word2.getLength()) {
 			return false;
@@ -416,8 +409,33 @@ private:
 			return true;
 		}
 	}
+	
+	bool greeterThanComparation(String string) {
+		int indice = string.getLength();
+		if (indice > length) {
+			indice = length;
+		}
 
-	bool equalsComparation(String word1, String word2) {
+		for (int i = 0; i < indice; i++) {
+			if (word[i] < string[i]) {
+				return false;
+			}
+			else if (word[i] > string[i]) {
+				return true;
+			}
+		}
+
+		if (length > string.getLength()) {
+			return true;
+		}
+		else if (length < string.getLength()) {
+			return false;
+		}
+
+		return false;
+	}
+
+	/*bool equalsComparation(String word1, String word2) {
 		if (word1.getLength() != word2.getLength()) {
 			return false;
 		}
@@ -429,7 +447,7 @@ private:
 			}
 			return true;
 		}
-	}
+	}*/
 
 
 };

@@ -12,7 +12,7 @@ int main() {
 	cout << "String: " << c << " tamanho: " << c->getLength() << endl;
 
 	String d = 'a';
-	String e = "a";
+	String e = "b";
 	String f = c;
 	String g = d;
 
@@ -32,29 +32,35 @@ int main() {
 	
 	cout << d[0] << endl;
 
-	if (d == b) {
+	if (b > e) {
+		cout << "hello" << endl;
+	}
+	if (e > c) {
+		cout << "hello" << endl;
+	}
+	if (c > d) {
 		cout << "hello" << endl;
 	}
 
-	if (b == d) {
-		cout << "hello" << endl;
-	}
+	//if (d == b) {
+	//	cout << "hello" << endl;
+	//}
+	//if (b == d) {
+	//	cout << "hello" << endl;
+	//}
+	//if (d == e) {
+	//	cout << "hello" << endl;
+	//}
+	//if (c != d) {
+	//	cout << "hello" << endl;
+	//}
+	//if (b != f) {
+	//	cout << "hello" << endl;
+	//}
+	//if (f != e) {
+	//	cout << "hello" << endl;
+	//}
 
-	if (d == e) {
-		cout << "hello" << endl;
-	}
-
-	if (c != d) {
-		cout << "hello" << endl;
-	}
-
-	if (b != f) {
-		cout << "hello" << endl;
-	}
-
-	if (f != e) {
-		cout << "hello" << endl;
-	}
 
 
 
