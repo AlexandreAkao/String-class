@@ -15,12 +15,13 @@ public:
 		aux[1] = '\0';
 		this->length = 1;
 		this->word = aux;
+
+
 	}
 	
 	String(const char* new_char) {
 		this->length = CharLength(new_char);
 		char* aux = new char[length + 1];
-
 		for (int i = 0; i < length; i++) {
 			aux[i] = new_char[i];
 		}
@@ -29,35 +30,11 @@ public:
 		this->word = aux;
 	}
 
-	String(String* new_char) {
-		this->length = CharLength(new_char->getWord());
-		char* aux = new char[length + 1];
-
-		for (int i = 0; i < length; i++) {
-			aux[i] = new_char->getWord()[i];
-		}
-		aux[length] = '\0';
-
-		this->word = aux;
-	}
-
-	String(String& new_char) {
-		this->length = CharLength(new_char.getWord());
-		char* aux = new char[length + 1];
-
-		for (int i = 0; i < length; i++) {
-			aux[i] = new_char.getWord()[i];
-		}
-		aux[length] = '\0';
-
-		this->word = aux;
-	}
-
-	int getLength() {
+	int getLength() const {
 		return this->length;
 	}
 
-	const char* getWord() {
+	const char* getWord() const {
 		return this->word;
 	}
 
@@ -164,195 +141,114 @@ public:
 		return word[index];
 	}
 
-	/*void operator == (String* word) {}
-	void operator == (String* word) {}*/
-
-	friend auto operator == (String* word1, String& word2)->bool {
-		String word = word1->getWord();
-		return word.equalsComparation(word2);
+	bool operator == (const String& string) {	
+		cout << "dasda" <<endl;
+		return equalsComparation(string);
 	}
 
-	friend auto operator == (String& word1, String* word2) ->bool {
-		String word = word2->getWord();
-		return word1.equalsComparation(word);
+	bool operator == (const char* string) {
+
+		return equalsComparation(string);
 	}
 
-	friend auto operator == (String& word1, String& word2) ->bool {
-		return word1.equalsComparation(word2);
+	bool operator != (const String& string) {
+		return !equalsComparation(string);
 	}
 
-	friend auto operator != (String* word1, String& word2)->bool {
-		String word = word1->getWord();
-		return !word.equalsComparation(word2);
+	bool operator != (const char* string) {
+		return !equalsComparation(string);
 	}
 
-	friend auto operator != (String& word1, String* word2) ->bool {
-		String word = word2->getWord();
-		return !word1.equalsComparation(word);
+	void operator = (const String& string) {
+		(*this) = new String(string.getWord());
+
+		delete this;
 	}
 
-	friend auto operator != (String& word1, String& word2) ->bool {
-		return !word1.equalsComparation(word2);
-	}
+	/*void operator = (const char* string) {
 
-	friend auto operator > (String& word1, String* word2)-> bool {
-		String word = word2->getWord();
-		return word1.greeterThanComparation(word);
-	}
+		delete this;
 
-	friend auto operator > (String& word1, String& word2)-> bool {
-		return word1.greeterThanComparation(word2);
-	}
+		(*this) = new String(string);
+	}*/
 
-	friend auto operator > (String* word1, String& word2)-> bool {
-		String word = word1->getWord();
-		return word.greeterThanComparation(word2);
-	} 
-
-	friend auto operator < (String& word1, String* word2)-> bool {
-		String word = word2->getWord();
-		return word1.lesserThanComparation(word);
-	}
-
-	friend auto operator < (String& word1, String& word2)-> bool {
-		return word1.lesserThanComparation(word2);
-	}
-
-	friend auto operator < (String* word1, String& word2)-> bool {
-		String word = word1->getWord();
-		return word.lesserThanComparation(word2);
-	}
-
-	friend auto operator >= (String& word1, String* word2)-> bool {
-		String word = word2->getWord();
-		return word1.greeterThanOrEqualsComparation(word);
-	}
-
-	friend auto operator >= (String& word1, String& word2)-> bool {
-		return word1.greeterThanOrEqualsComparation(word2);
-	}
-
-	friend auto operator >= (String* word1, String& word2)-> bool {
-		String word = word1->getWord();
-		return word.greeterThanOrEqualsComparation(word2);
-	}
-
-	friend auto operator <= (String& word1, String* word2)-> bool {
-		String word = word2->getWord();
-		return word1.lesserThanOrEqualsComparation(word);
-	}
-
-	friend auto operator <= (String& word1, String& word2)-> bool {
-		return word1.lesserThanOrEqualsComparation(word2);
-	}
-
-	friend auto operator <= (String* word1, String& word2)-> bool {
-		String word = word1->getWord();
-		return word.lesserThanOrEqualsComparation(word2);
-	}
-
-	/*
-
-	bool operator >= (String otherWord) {
-		int indice = otherWord.length;
-		if (indice > length) {
-			indice = length;
-		}
-
-		for (int i = 0; i < indice; i++) {
-			if (word[i] < otherWord[i]) {
-				return false;
-			}
-			else if (word[i] > otherWord[i]) {
-				return true;
-			}
-		}
-
-		if (length == otherWord.getLength()) {
-			return true;
-		}
-		else 
-		{
-			if (length > otherWord.length) {
-				return true;
-			}
-			else if (length < otherWord.length) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-
-
-*/
-
-	/*
-	String operator + (String newWord) {
-		String aux =  ConcatString(newWord);
+	String* operator += (const String& string) {
+		String* aux = ConcatString(string);
+		(*this) = *aux;
 		return aux;
+
+		//delete this;
+
+		//
+
 	}
 
-
-	String operator = (String word) {
-		String copyWord
-	}
-
-	String operator + (const char* newWord) {
-		String value = newWord;
-
-		return ConcatString(value);
-	}
-
-		String operator = (String newWord) {
-		cout << "oie" << endl;
-		this->length = CharLength(newWord.getWord());
-		char* aux = new char[length + 1];
-		for (int i = 0; i < length; i++) {
-			aux[i] = newWord.getWord()[i];
-		}
-		aux[length] = '\0';
-		String* deleteAux = new String(aux);
+	String* operator += (const char* string) {
+		String* aux = ConcatString(string);
 		return aux;
+		//delete this;
+
+		//(*this) = ConcatString(string);
+
 	}
 
-	void operator += (String  newWord) {
-		String res = ConcatString(newWord);
-		this->length = res.length;
-		this->word = res.word;
+
+	bool operator > (const String& string) {
+		return greaterThanComparation(string);
 	}
+
+	bool operator > (const char* string) {
+		return greaterThanComparation(string);
+	}
+
+	bool operator < (const String& string) {
+		return lesserThanComparation(string);
+	}
+
+	bool operator < (const char* string) {
+		return lesserThanComparation(string);
+	}
+
+	bool operator <= (const String& string) {
+		return lesserThanOrEqualsComparation(string);
+	}
+
+	bool operator <= (const char* string) {
+		return lesserThanOrEqualsComparation(string);
+	}
+
+	bool operator >= (const String& string) {
+		return greaterThanOrEqualsComparation(string);
+	}
+
+	bool operator >= (const char* string) {
+		return greaterThanOrEqualsComparation(string);
+	}
+
+	String* operator + (const String& string) {
+		return ConcatString(string);
+	}
+
+	String* operator + (const char* string) {
+		return ConcatString(string);
+	}
+
 
 	
 
-
-	*/
 	friend ostream& operator << (ostream& out, String* c) {
 		out << c->getWord();
 		return out;
 	}
 
-	friend ostream& operator << (ostream& out, String& c) {
-		out << c.getWord();
-		return out;
-	}
-
-	friend istream& operator >> (istream& in, String& c) {
-		char* charAux;
-		in >> charAux;
-		int size = 0;
-
-		String aux = charAux;
-		c = aux;
-		return in;
-	}
-
 	friend istream& operator >> (istream& in, String* c) {
-		char* charAux;
-		in >> charAux;
-
-		c = new String(charAux);
+		char* a= new char();
+		in >> a;
+		delete c;
+		c = new String(a);
 		return in;
 	}
+
 
 
 	~String() {
@@ -363,25 +259,23 @@ private:
 	const char* word;
 	int length;
 
-	String ConcatString(String& secondString) {
-		String res;
-		res.length = length + secondString.length;
-		char* newWord = new char[res.length + 1];
-		for (int i = 0; i < res.length; i++) {
+	String* ConcatString(const String& string) {
+
+		int size = length + string.getLength() ;
+		char* newWord = new char[size+1];
+		for (int i = 0; i < size; i++) {
 			if (i < length) {
 				newWord[i] = word[i];
 			}
 			else {
 
-				newWord[i] = secondString.word[i - length];
+				newWord[i] = string.getWord()[i- length];
 			}
 
 		}
-		newWord[res.length] = '\0';
-		res.word = newWord;
+		newWord[size] = '\0';
 
-
-		return res;
+		return new String(newWord);
 	}
 
 	int CharLength(const char* stringValue) {
@@ -393,13 +287,13 @@ private:
 		return size;
 	}
 
-	bool equalsComparation(String word2) {
+	bool equalsComparation(const String& word2) {
 		if (length != word2.getLength()) {
 			return false;
 		}
 		else {
 			for (int i = 0; i < length; i++) {
-				if (word[i] != word2[i]) {
+				if (word[i] != word2.getWord()[i]) {
 					return false;
 				}
 			}
@@ -407,17 +301,17 @@ private:
 		}
 	}
 	
-	bool greeterThanComparation(String string) {
+	bool greaterThanComparation(const String& string) {
 		int indice = string.getLength();
 		if (indice > length) {
 			indice = length;
 		}
 
 		for (int i = 0; i < indice; i++) {
-			if (word[i] < string[i]) {
+			if (word[i] < string.getWord()[i]) {
 				return false;
 			}
-			else if (word[i] > string[i]) {
+			else if (word[i] > string.getWord()[i]) {
 				return true;
 			}
 		}
@@ -432,17 +326,17 @@ private:
 		return false;
 	}
 
-	bool lesserThanComparation(String string) {
+	bool lesserThanComparation(const String& string) {
 		int indice = string.getLength();
 		if (indice > length) {
 			indice = length;
 		}
 
 		for (int i = 0; i < indice; i++) {
-			if (word[i] < string[i]) {
+			if (word[i] < string.getWord()[i]) {
 				return true;
 			}
-			else if (word[i] > string[i]) {
+			else if (word[i] > string.getWord()[i]) {
 				return false;
 			}
 		}
@@ -457,17 +351,17 @@ private:
 		return false;
 	}
 
-	bool greeterThanOrEqualsComparation(String string) {
+	bool greaterThanOrEqualsComparation(const String& string) {
 		int indice = string.getLength();
 		if (indice > length) {
 			indice = length;
 		}
 
 		for (int i = 0; i < indice; i++) {
-			if (word[i] < string[i]) {
+			if (word[i] < string.getWord()[i]) {
 				return false;
 			}
-			else if (word[i] > string[i]) {
+			else if (word[i] > string.getWord()[i]) {
 				return true;
 			}
 		}
@@ -487,17 +381,17 @@ private:
 
 	}
 
-	bool lesserThanOrEqualsComparation(String string) {
+	bool lesserThanOrEqualsComparation(const String& string) {
 		int indice = string.getLength();
 		if (indice > length) {
 			indice = length;
 		}
 
 		for (int i = 0; i < indice; i++) {
-			if (word[i] < string[i]) {
+			if (word[i] < string.getWord()[i]) {
 				return true;
 			}
-			else if (word[i] > string[i]) {
+			else if (word[i] > string.getWord()[i]) {
 				return false;
 			}
 		}
@@ -508,10 +402,10 @@ private:
 		else
 		{
 			if (length > string.getLength()) {
-				return true;
+				return false;
 			}
 			else if (length < string.getLength()) {
-				return false;
+				return true;
 			}
 		}
 

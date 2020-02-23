@@ -4,74 +4,84 @@
 int main() {
 
 	String* a = new String();
-	String* b = new String('a');
-	String* c = new String("ab");
+	String *b = new String('a');
+	String *c = new String("abc");
 
-	cout << "String: " << a << " tamanho: " << a->getLength()<< endl;
-	cout << "String: " << b << " tamanho: " << b->getLength() << endl;
-	cout << "String: " << c << " tamanho: " << c->getLength() << endl;
+	//cout << &b[1] << endl;
 
-	String d = 'a';
-	String e = "b";
-	String f = c;
-	String g = d;
-
-
-	cout << "String: " << d << " tamanho: " << d.getLength() << endl;
-	cout << "String: " << e << " tamanho: " << e.getLength() << endl;
-	cout << "String: " << f << " tamanho: " << f.getLength() << endl;
-	cout << "String: " << g << " tamanho: " << g.getLength() << endl;
-	
-	cout <<d.getIndice('b') <<   endl;
-	cout << c->getIndice('b') << endl;
-
-	String* cases = new String("SaMuel");
-	cout << cases->lowerCase(0, 5) << endl;
-	cout << cases->toggleCase(0, 5) << endl;
-	cout << cases->upperCase(0, 5) << endl;
-	
-	cout << d[0] << endl;
-
-	//if(a == d)
-
-	/*if (b <= e) {
-		cout << "hello" << endl;
+	if (*b  == *c  ) {
+		cout <<b <<" == " <<c<< endl;
 	}
-	if (e <= c) {
-		cout << "hello" << endl;
+
+	if (*b == "a") {
+		cout<< b << " == "<< "a" << endl;
 	}
-	if (c <= d) {
-		cout << "hello" << endl;
-	}*/
-	//if (b > e) {
-	//	cout << "hello" << endl;
-	//}
-	//if (e > c) {
-	//	cout << "hello" << endl;
-	//}
-	//if (c > d) {
-	//	cout << "hello" << endl;
-	//}
-	//if (d == b) {
-	//	cout << "hello" << endl;
-	//}
-	//if (b == d) {
-	//	cout << "hello" << endl;
-	//}
-	//if (d == e) {
-	//	cout << "hello" << endl;
-	//}
-	//if (c != d) {
-	//	cout << "hello" << endl;
-	//}
-	//if (b != f) {
-	//	cout << "hello" << endl;
-	//}
-	//if (f != e) {
-	//	cout << "hello" << endl;
-	//}
+	
+	if (*b != *c) {
+		cout << b << " != " << c << endl;
+	}
 
+	if (*b != "a") {
+		cout << b << " != " << "a" << endl;
+	}
 
+	if (*c > *b) {
+		cout << c<<" > "<< b << endl;
+	}
+
+	if (*b > *c) {
+		cout << b << " > " << c << endl;
+	}
+
+	if (*c < * b) {
+		cout << c << " < " << b << endl;
+	}
+
+	if (*b < * c) {
+		cout << b << " < " << c << endl;
+	}
+
+	if (*c <= *b) {
+		cout << c << " <= " << b << endl;
+	}
+
+	if (*b <= *c) {
+		cout << b << " <= " << c << endl;
+	}
+
+	if (*c <= "abc") {
+		cout << c << " <= " << "abc" << endl;
+	}
+
+	if (*c >= *b) {
+		cout << c << " >= " << b << endl;
+	}
+
+	if (*b >= *c) {
+		cout << b << " >= " << c << endl;
+	}
+
+	if (*c >= "abc") {
+		cout << c << " >= " << "abc" << endl;
+	}
+
+	cout << a << endl;
+	*a = *b;
+	cout << a << endl;
+
+	String* d = *b + *c;
+	cout << d << endl;
+	String* e = *b + "docica";
+	cout << e << endl;
+
+	String* k = new String("kkkk");
+	cout << k->getLength()<<endl;
+	//cout << "diga o valor de k: " << endl;
+	//cin >> k;   
+	//cout << k << endl;
+
+	*k += *b;
+	cout << k->getWord() << endl;
 
 
 	return 0;

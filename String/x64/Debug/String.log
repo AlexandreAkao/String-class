@@ -1,2 +1,7 @@
-﻿  String.cpp
-  String.vcxproj -> C:\Users\alexa\Documents\Projetos\String\x64\Debug\String.exe
+﻿  Main.cpp
+D:\Codes\c++\String-class\String\Main.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  String.cpp
+  Generating Code...
+D:\Codes\c++\String-class\String\String.cpp(411): warning C4715: 'String::lesserThanOrEqualsComparation': not all control paths return a value
+D:\Codes\c++\String-class\String\String.cpp(381): warning C4715: 'String::greaterThanOrEqualsComparation': not all control paths return a value
+  String.vcxproj -> D:\Codes\c++\String-class\x64\Debug\String.exe
