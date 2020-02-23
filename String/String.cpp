@@ -3,9 +3,9 @@ using namespace std;
 
 class String {
 public:
+
 	String() {
 		this->length = 0;
-
 		this->word = new char('\0');
 	}	
 
@@ -159,10 +159,11 @@ public:
 		return !equalsComparation(string);
 	}
 
-	void operator = (const String& string) {
-		(*this) = new String(string.getWord());
-
+	void operator = (const String* string) {
 		delete this;
+
+		memcpy(this, string, sizeof(*string));
+
 	}
 
 	/*void operator = (const char* string) {
@@ -172,14 +173,13 @@ public:
 		(*this) = new String(string);
 	}*/
 
-	String* operator += (const String& string) {
-		String* aux = ConcatString(string);
-		(*this) = *aux;
-		return aux;
+	void operator += (const String* string) {
+		String* aux = ConcatString(string->getWord());
 
-		//delete this;
+		String* memorySpace = this;
+		delete memorySpace;
 
-		//
+		memcpy(memorySpace, aux, sizeof(*aux));
 
 	}
 
@@ -233,23 +233,19 @@ public:
 		return ConcatString(string);
 	}
 
-
-	
-
 	friend ostream& operator << (ostream& out, String* c) {
 		out << c->getWord();
 		return out;
 	}
 
-	friend istream& operator >> (istream& in, String* c) {
-		char* a= new char();
+	friend istream& operator >> (istream& in, String* string) {
+		char* a= new char[10];
 		in >> a;
-		delete c;
-		c = new String(a);
+		String* aux = new String(a);
+		delete string;
+		memcpy(string, aux, sizeof(*aux));
 		return in;
 	}
-
-
 
 	~String() {
 		delete(word);
@@ -411,20 +407,6 @@ private:
 
 	}
 
-
-	/*bool equalsComparation(String word1, String word2) {
-		if (word1.getLength() != word2.getLength()) {
-			return false;
-		}
-		else {
-			for (int i = 0; i < word1.getLength(); i++) {
-				if (word1[i] != word2[i]) {
-					return false;
-				}
-			}
-			return true;
-		}
-	}*/
 
 
 };
