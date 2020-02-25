@@ -135,7 +135,7 @@ public:
 		if (this->length == 0) {
 			throw "String vazia";
 		}
-		else if (index < 0 || index >= this->length) {
+		else if (index < 0 || index > this->length) {
 			throw "posicao nao valida";
 		}
 		return word[index];
@@ -159,39 +159,37 @@ public:
 		return !equalsComparation(string);
 	}
 
+
+
 	void operator = (const String* string) {
 		delete this;
 
 		memcpy(this, string, sizeof(*string));
 
 	}
-
-	/*void operator = (const char* string) {
-
+	void operator = (const char* string) {
 		delete this;
+		String* aux = new String(string);
+		memcpy(this, aux, sizeof(*aux));
 
-		(*this) = new String(string);
-	}*/
+	}
+
 
 	void operator += (const String* string) {
 		String* aux = ConcatString(string->getWord());
+		delete this;
 
-		String* memorySpace = this;
-		delete memorySpace;
-
-		memcpy(memorySpace, aux, sizeof(*aux));
-
+		memcpy(this, aux, sizeof(*aux));
 	}
 
-	String* operator += (const char* string) {
+	void operator += (const char* string) {
 		String* aux = ConcatString(string);
-		return aux;
-		//delete this;
 
-		//(*this) = ConcatString(string);
+		delete this;
+
+		memcpy(this, aux, sizeof(*aux));
 
 	}
-
 
 	bool operator > (const String& string) {
 		return greaterThanComparation(string);
