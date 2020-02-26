@@ -15,8 +15,6 @@ public:
 		aux[1] = '\0';
 		this->length = 1;
 		this->word = aux;
-
-
 	}
 	
 	String(const char* new_char) {
@@ -142,12 +140,10 @@ public:
 	}
 
 	bool operator == (const String& string) {	
-		cout << "dasda" <<endl;
 		return equalsComparation(string);
 	}
 
 	bool operator == (const char* string) {
-
 		return equalsComparation(string);
 	}
 
@@ -188,7 +184,6 @@ public:
 		delete this;
 
 		memcpy(this, aux, sizeof(*aux));
-
 	}
 
 	bool operator > (const String& string) {
@@ -329,16 +324,14 @@ private:
 		for (int i = 0; i < indice; i++) {
 			if (word[i] < string.getWord()[i]) {
 				return true;
-			}
-			else if (word[i] > string.getWord()[i]) {
+			} else if (word[i] > string.getWord()[i]) {
 				return false;
 			}
 		}
 
 		if (length > string.getLength()) {
 			return false;
-		}
-		else if (length < string.getLength()) {
+		} else if (length < string.getLength()) {
 			return true;
 		}
 
@@ -354,17 +347,14 @@ private:
 		for (int i = 0; i < indice; i++) {
 			if (word[i] < string.getWord()[i]) {
 				return false;
-			}
-			else if (word[i] > string.getWord()[i]) {
+			} else if (word[i] > string.getWord()[i]) {
 				return true;
 			}
 		}
 
 		if (length == string.getLength()) {
 			return true;
-		}
-		else
-		{
+		} else {
 			if (length > string.getLength()) {
 				return true;
 			}
@@ -372,7 +362,6 @@ private:
 				return false;
 			}
 		}
-
 	}
 
 	bool lesserThanOrEqualsComparation(const String& string) {
@@ -384,17 +373,14 @@ private:
 		for (int i = 0; i < indice; i++) {
 			if (word[i] < string.getWord()[i]) {
 				return true;
-			}
-			else if (word[i] > string.getWord()[i]) {
+			} else if (word[i] > string.getWord()[i]) {
 				return false;
 			}
 		}
 
 		if (length == string.getLength()) {
 			return true;
-		}
-		else
-		{
+		} else {
 			if (length > string.getLength()) {
 				return false;
 			}
@@ -402,11 +388,7 @@ private:
 				return true;
 			}
 		}
-
 	}
-
-
-
 };
 
 
