@@ -211,9 +211,18 @@ int main() {
 	*a = "Opa Eriko";
 	cout << "Novo valor de a: " << a << endl << endl << endl;
 
-	char q = (*k)[0];
-	
-	cout << "O valor da primeira posição de k é: " << q << endl;
+	char q = (*e)[0];
+	char p = (*e)[1];
+
+	cout << "Na string E: " << e << ", a letra na primera posicao é: " << q << endl;
+	cout << "Na string E: " << e << ", a letra na segunda posicao é: " << p << endl;
+
+	int t = k->getIndice('b');
+	int y = k->getIndice('p');
+
+	cout << "Na string K: "<< k<< ", b está na posição : " << t << endl;
+	cout << "Na string K: " << k << ", p está na posição : " << y << endl;
+
 
 	return 0;
 }

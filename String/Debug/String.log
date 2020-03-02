@@ -1,6 +1,4 @@
 ﻿  Main.cpp
-  String.cpp
-  Generating Code...
-C:\Users\alexa\Downloads\String-class\String\String.cpp(404): warning C4715: 'String::lesserThanOrEqualsComparation': not all control paths return a value
-C:\Users\alexa\Downloads\String-class\String\String.cpp(374): warning C4715: 'String::greaterThanOrEqualsComparation': not all control paths return a value
-  String.vcxproj -> C:\Users\alexa\Downloads\String-class\Debug\String.exe
+D:\Codes\c++\String-class\String\String.cpp(391): warning C4715: 'String::lesserThanOrEqualsComparation': not all control paths return a value
+D:\Codes\c++\String-class\String\String.cpp(365): warning C4715: 'String::greaterThanOrEqualsComparation': not all control paths return a value
+  String.vcxproj -> D:\Codes\c++\String-class\Debug\String.exe
