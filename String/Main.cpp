@@ -223,6 +223,14 @@ int main() {
 	cout << "Na string K: "<< k<< ", b está na posição : " << t << endl;
 	cout << "Na string K: " << k << ", p está na posição : " << y << endl;
 
+	String* toUpper = new String("alou");
+	cout << "Na string K: " << toUpper << ", upper case " << toUpper->upperCase(0,2) << endl;
+	String* toLower = new String("ALOU");
+	cout << "Na string K: " << toLower << ", upper case " << toLower->lowerCase(0, 2) << endl;
+
+	String* toToggle = new String("AlOu");
+	cout << "Na string K: " << toToggle << ", upper case " << toToggle->toggleCase(0, 2) << endl;
+
 
 	return 0;
 }
